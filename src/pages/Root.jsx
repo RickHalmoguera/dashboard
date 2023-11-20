@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Nav } from "../components/Nav";
 import { RootStyled } from "../components/styled/RootStyled";
 import { TopBar } from "../components/TopBar";
-import { FlexColumnStyled } from "../components/styled/FlexColumnStyle";
+import { FlexColumnStyled } from "../components/styled/FlexColumnStyled";
 
 
 

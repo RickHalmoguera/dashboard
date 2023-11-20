@@ -12,6 +12,7 @@ export const TopBar = () =>{
             <FaArrowLeft />
             <FaArrowRight />
             <h1>Dashboard</h1>
+            
             <MdOutlineMailOutline />
             <FaRegBell />
             <RiLogoutBoxLine />

@@ -6,7 +6,7 @@ export const NavStyled = styled.div`
     flex-direction: column;
     justify-content: space-between;
     background-color: #FFF;
-    padding: 2em 5em;
+    padding: 2em;
 
     ul{
         list-style: none;

@@ -10,6 +10,7 @@ import { createGlobalStyle } from "styled-components";
         font-size: 10px;
     }
 
+   
     #root{
         display: flex;
         align-items: center;
