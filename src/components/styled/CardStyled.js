@@ -4,7 +4,7 @@ export const CardStyled = styled.div`
     margin: 0 auto;
     width: 30rem;
     border-radius: 2em ;
-    box-shadow: 0px 20px 30px #00000014;
+    box-shadow: 0px 0px 30px 15px #00000014;
     padding: 3em;
     text-align: center;
     gap: 3em;
