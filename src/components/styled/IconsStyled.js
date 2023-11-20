@@ -9,8 +9,6 @@ const sharedIconStyle = `
     width: 24px;
     height: 24px;
     color:inherit;
-    margin-right: 2em;
-   
 `
 
 export const DashBoardStyledIcon = styled(LuLayoutDashboard)`
