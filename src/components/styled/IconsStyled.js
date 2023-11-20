@@ -4,25 +4,50 @@ import { RiKeyLine } from "react-icons/ri";
 import { LuCalendarCheck2 } from "react-icons/lu";
 import { CiUser } from "react-icons/ci";
 import { HiOutlinePuzzle } from "react-icons/hi";
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+import { MdOutlineMailOutline } from "react-icons/md";
+import { FaRegBell } from "react-icons/fa";
+import { RiLogoutBoxLine } from "react-icons/ri";
 
-const sharedIconStyle = `
+const NavSharedIconStyle = `
     width: 24px;
     height: 24px;
     color:inherit;
 `
+const TopBarSharedIconStyle =`
+    width: 24px;
+    height: 24px;
+    color: #135846;
+`
 
 export const DashBoardStyledIcon = styled(LuLayoutDashboard)`
-    ${sharedIconStyle}
+    ${NavSharedIconStyle}
 ` 
 export const BookingStyledIcon = styled( RiKeyLine)`
-    ${sharedIconStyle}
+    ${NavSharedIconStyle}
 ` 
 export const RoomsStyledIcon = styled(LuCalendarCheck2)`
-    ${sharedIconStyle}
+    ${NavSharedIconStyle}
 ` 
 export const ContactStyledIcon = styled(CiUser)`
-    ${sharedIconStyle}
+    ${NavSharedIconStyle}
 ` 
 export const UsersStyledIcon = styled(HiOutlinePuzzle)`
-    ${sharedIconStyle}
+    ${NavSharedIconStyle}
+` 
+export const ArrowLeftStyledIcon = styled(FaArrowLeft)`
+    ${TopBarSharedIconStyle}
+` 
+export const ArrowRightStyledIcon = styled(FaArrowRight)`
+    ${TopBarSharedIconStyle}
+` 
+export const MailStyledIcon = styled(MdOutlineMailOutline)`
+    ${TopBarSharedIconStyle}
+` 
+export const BellStyledIcon = styled(FaRegBell)`
+    ${TopBarSharedIconStyle}
+` 
+export const LogoutStyledIcon = styled(RiLogoutBoxLine)`
+    ${TopBarSharedIconStyle}
 ` 

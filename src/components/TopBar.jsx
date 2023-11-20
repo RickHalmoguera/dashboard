@@ -1,21 +1,30 @@
 import { HiMenuAlt2 } from "react-icons/hi";
 import { TopBarStyled } from "./styled/TopBarStyled";
-import { FaArrowLeft } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
-import { MdOutlineMailOutline } from "react-icons/md";
-import { FaRegBell } from "react-icons/fa";
-import { RiLogoutBoxLine } from "react-icons/ri";
+import { ArrowLeftStyledIcon, ArrowRightStyledIcon, MailStyledIcon, BellStyledIcon, LogoutStyledIcon } from "./styled/IconsStyled";
+import { FlexStyled } from "./styled/FlexStyled";
+import { useNavigate } from "react-router-dom";
 
-export const TopBar = () =>{
-    return(
-        <TopBarStyled>
-            <FaArrowLeft />
-            <FaArrowRight />
-            <h1>Dashboard</h1>
-            
-            <MdOutlineMailOutline />
-            <FaRegBell />
-            <RiLogoutBoxLine />
-        </TopBarStyled>
-    )
-}
+export const TopBar = ({ onToggleMenu, isMenuOpen }) => {
+    const navigate = useNavigate()
+    const handleLogOut = ()=>{
+
+        navigate("/")
+    }
+    
+    return (
+      <TopBarStyled>
+        <button onClick={onToggleMenu}>
+          {isMenuOpen ? <ArrowLeftStyledIcon /> : <ArrowRightStyledIcon/>}
+        </button>
+        <h1>Dashboard</h1>
+        <FlexStyled>
+          <MailStyledIcon />
+          <BellStyledIcon />
+          <button onClick={handleLogOut}>
+            <LogoutStyledIcon/>
+          </button>
+        </FlexStyled>
+      </TopBarStyled>
+    );
+  };
+  

@@ -12,6 +12,7 @@ import { createGlobalStyle } from "styled-components";
 
    
     #root{
+        height: 100vh;
         display: flex;
         align-items: center;
         background-color: #EBF1EF;

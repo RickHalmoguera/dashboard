@@ -3,15 +3,22 @@ import { Nav } from "../components/Nav";
 import { RootStyled } from "../components/styled/RootStyled";
 import { TopBar } from "../components/TopBar";
 import { FlexColumnStyled } from "../components/styled/FlexColumnStyled";
+import { useState } from "react";
 
 
 
 export const Root = () =>{
+    const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+    const toggleMenu = () => {
+      setIsMenuOpen(!isMenuOpen);
+    };
+
     return(
         <RootStyled>
-            <Nav/>
+            <Nav isVisible={isMenuOpen}/>
             <FlexColumnStyled>
-                <TopBar/>
+                <TopBar onToggleMenu={toggleMenu} isMenuOpen={isMenuOpen}/>
                 <Outlet/>
             </FlexColumnStyled>
         </RootStyled>
