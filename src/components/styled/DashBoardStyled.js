@@ -10,7 +10,7 @@ export const DashBoardStyled = styled.div`
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap:1em
+        gap:2em
         
     }
 `

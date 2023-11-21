@@ -9,6 +9,20 @@ export const CardDashBoardStyled = styled.div`
     max-width: 34rem;
     min-width: 26.5rem;
     border-radius: 1em;
+    transition: .3s;
+
+    &:hover{
+        scale:1.05;
+        box-shadow: 0px 16px 30px #00000014;
+        
+            & > .icon__container{
+                background-color: #E23428;
+
+                & > * {
+                color: #fff;
+            }
+        } 
+    }
 
     .icon__container{
         background-color: #FFEDEC;
@@ -20,13 +34,7 @@ export const CardDashBoardStyled = styled.div`
         border-radius: 1em;
         
 
-        &:hover{
-            background-color: #E23428;
-
-            & > * {
-            color: #fff;
-        }
-        } 
+       
     }
 
     .text__container{
