@@ -14,6 +14,11 @@ import { RiLogoutBoxLine } from "react-icons/ri";
 import { IoBedOutline } from "react-icons/io5";
 import { RiLoginBoxLine } from "react-icons/ri";
 
+import { FaRegCheckCircle } from "react-icons/fa";
+import { FaRegCircleXmark } from "react-icons/fa6";
+
+import { PiDotsThreeOutlineVerticalFill } from "react-icons/pi";
+
 const NavSharedIconStyle = `
     width: 24px;
     height: 24px;
@@ -33,6 +38,8 @@ const DashBoardSharedIconStyle =`
         color:#FFF;
     }
 `
+
+
 
 export const DashBoardStyledIcon = styled(LuLayoutDashboard)`
     ${NavSharedIconStyle}
@@ -78,4 +85,22 @@ export const CheckInStyledIcon = styled(RiLoginBoxLine)`
 
 export const CheckOutStyledIcon = styled(RiLogoutBoxLine)`
     ${DashBoardSharedIconStyle}
+`
+
+export  const CheckCircleStyledIcon = styled(FaRegCheckCircle)`
+    color: #5AD07A;
+    width: 24px;
+    height: 24px;
+    margin-right: 1.5em;
+`
+export  const XCircleStyledIcon = styled(FaRegCircleXmark)`
+    color: #E23428;
+    width: 24px;
+    height: 24px;
+`
+
+export const DotsStyledIcon = styled(PiDotsThreeOutlineVerticalFill)`
+    width: 24px;
+    height: 24px;
+    color: #6E6E6E;
 `

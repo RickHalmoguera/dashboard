@@ -1,9 +1,13 @@
+
 import { CardDashBoardStyled } from "../components/styled/CardDashBoardStyled"
 import { DashBoardStyled } from "../components/styled/DashBoardStyled"
 import { BedStyledIcon } from "../components/styled/IconsStyled"
 import { CalendarDashStyledIcon } from "../components/styled/IconsStyled"
 import { CheckInStyledIcon } from "../components/styled/IconsStyled"
 import { CheckOutStyledIcon } from "../components/styled/IconsStyled"
+import { SwiperReviews } from "../components/SwiperReviews"
+
+
 
 export const DashBoard = ()=>{
     return(
@@ -51,8 +55,11 @@ export const DashBoard = ()=>{
             </div>
             <div className="bottom__container">
                 <h2>Latest Reviews by Customers</h2>
+
+                <SwiperReviews/>
             </div>
         </DashBoardStyled>
+        
         
 
     )

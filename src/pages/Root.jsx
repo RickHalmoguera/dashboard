@@ -1,3 +1,4 @@
+import { OutletStyled } from "../components/styled/OutletStyled";
 import { Outlet } from "react-router-dom";
 import { Nav } from "../components/Nav";
 import { RootStyled } from "../components/styled/RootStyled";
@@ -19,7 +20,9 @@ export const Root = () =>{
             <Nav isVisible={isMenuOpen}/>
             <FlexColumnStyled>
                 <TopBar onToggleMenu={toggleMenu} isMenuOpen={isMenuOpen}/>
-                <Outlet/>
+                <OutletStyled>
+                    <Outlet/>
+                </OutletStyled>
             </FlexColumnStyled>
         </RootStyled>
     )
