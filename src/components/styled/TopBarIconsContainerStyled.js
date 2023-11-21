@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FlexStyled = styled.div`
+export const TopBarIconsContainerStyled = styled.div`
     margin-left: auto;
     display: flex;
     align-items: center;

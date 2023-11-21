@@ -21,7 +21,7 @@ export const Nav = ({isVisible }) =>{
                 <h2>Travl Hotel Admin Dashboard</h2>
                 <p>© 2020 All Rights Reserved</p>
             </div>
-            <p>Made with ♥ by Peterdraw</p>
+            <p>Made with ♥ by Ricardo</p>
             
         </NavStyled>
     )
