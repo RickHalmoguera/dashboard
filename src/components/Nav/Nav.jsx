@@ -1,5 +1,5 @@
 import { NavStyled } from "./NavStyled"
-import { UserCard } from "../UserCard"
+import { UserCard } from "./UserCard"
 import { NavUl } from "../NavUl/NavUl"
 import { Logo } from "../Logo/Logo"
 

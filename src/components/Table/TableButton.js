@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TableGuestButton = styled.button`
+export const TableButton = styled.button`
     border: none;
     border-radius: 8px;
     width: 13rem;

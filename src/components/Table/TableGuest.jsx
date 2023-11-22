@@ -1,9 +1,7 @@
 import { TableStyled } from './TableStyled';
 import { TableBodyStyled } from './TableBodyStyled';
 import { TableCardGuestStyled } from './TableCardGuestStyled';
-
-import Ricardo from '../../assets/users/ricardo.jpg';
-import { TableGuestButton } from './TableGuestButton';
+import { TableButton } from './TableButton';
 import { DotsStyledIcon } from '../../components/Icons/IconsStyled';
 import GuestList from '../../assets/JSON/guest.json';
 
@@ -23,47 +21,59 @@ export const TableGuest = () => {
       </thead>
       <TableBodyStyled>
         {GuestList.map((guest) => (
-          <tr key={guest.user_id}>
+          <tr key={guest.id}>
             <td>
               <TableCardGuestStyled>
-                <img src={Ricardo} alt="" />
+                <img src={guest.photo} alt="" />
                 <p>
                   {guest.name}
                   <br />
-                  <span>{guest.user_id}</span>
+                  <span>{guest.id}</span>
                 </p>
               </TableCardGuestStyled>
             </td>
             <td>
-              <p>{guest.date}</p>
+              <p>
+                {guest.orderDate}
+                <br />
+                <span>{guest.orderTime}</span>
+                </p>
             </td>
             <td>
-              <p>{guest.check_in}</p>
+              <p>
+                {guest.checkin}
+                <br />
+                <span>{guest.chekinTime}</span>
+                </p>
             </td>
             <td>
-              <p>{guest.check_out}</p>
+              <p>
+                {guest.checkout}
+                <br />
+                <span>{guest.checkoutTime}</span>
+                </p>
             </td>
             <td>
-              <TableGuestButton disabled={guest.notes === null} $bg="#EEF9F2" $fc="#212121">
+              <TableButton disabled={guest.notes === null} $bg="#EEF9F2" $fc="#212121">
                 View Notes
-              </TableGuestButton>
+              </TableButton>
             </td>
             <td>
               <p>{guest.Room}</p>
             </td>
             <td>
-                {guest.Status ==="Refund" && <TableGuestButton $bg="#FFEDEC" $fc="#E23428">
+                {guest.status ==="refund" && <TableButton $bg="#FFEDEC" $fc="#E23428">
                     Refund
-                </TableGuestButton>}
-                {guest.Status ==="Booked" && <TableGuestButton $bg="#E8FFEE" $fc="#5AD07A">
+                </TableButton>}
+                {guest.status ==="booked" && <TableButton $bg="#E8FFEE" $fc="#5AD07A">
                     Booked
-                </TableGuestButton>}
-                {guest.Status ==="Pending" && <TableGuestButton $bg="#E2E2E2" $fc="#6D6D6D">
+                </TableButton>}
+                {guest.status ==="pending" && <TableButton $bg="#E2E2E2" $fc="#6D6D6D">
                     Pending
-                </TableGuestButton>}
-                {guest.Status ==="Canceled" && <TableGuestButton $bg="#575757" $fc="#BEBEBE">
+                </TableButton>}
+                {guest.status ==="canceled" && <TableButton $bg="#575757" $fc="#BEBEBE">
                     Canceled
-                </TableGuestButton>}
+                </TableButton>}
             </td>
             <td>
               <DotsStyledIcon />

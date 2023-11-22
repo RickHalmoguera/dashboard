@@ -1,6 +1,6 @@
-import { TopBarStyled } from "./styled/TopBarStyled";
-import { ArrowLeftStyledIcon, ArrowRightStyledIcon, MailStyledIcon, BellStyledIcon, LogoutStyledIcon } from "./Icons/IconsStyled";
-import { TopBarIconsContainerStyled } from "./styled/TopBarIconsContainerStyled";
+import { TopBarStyled } from "./TopBarStyled";
+import { ArrowLeftStyledIcon, ArrowRightStyledIcon, MailStyledIcon, BellStyledIcon, LogoutStyledIcon } from "../Icons/IconsStyled";
+import { TopBarIconsContainerStyled } from "./TopBarIconsContainerStyled";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const routePageMapping = {

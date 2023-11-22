@@ -1,6 +1,6 @@
-import { CardStyled } from "./common/CardStyled"
-import RicardoPhoto from "../assets/users/ricardo.jpg"
-import { ButtonStyled } from "./common/ButtonStyled"
+import { CardStyled } from "../common/CardStyled"
+import RicardoPhoto from "../../assets/users/ricardo.jpg"
+import { ButtonStyled } from "../common/ButtonStyled"
 export const UserCard = ()=>{
     return(
         <CardStyled>
