@@ -1,6 +1,7 @@
+import { TableBooking } from "../components/TableBooking"
 
 export const Booking = ()=>{
     return(
-        <p>Booking</p>
+        <TableBooking />
     )
 }
