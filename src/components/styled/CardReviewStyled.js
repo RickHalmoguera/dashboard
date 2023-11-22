@@ -6,7 +6,7 @@ export const CardReviewStyled = styled.div`
     border-radius: 1em;
     background-color: #FFF;
     min-width: 27.5rem;
-    max-width: 43rem;
+    
     padding: 2em;
 
     p{

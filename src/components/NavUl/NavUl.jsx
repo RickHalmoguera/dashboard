@@ -1,6 +1,6 @@
-import { NavLinkStyled } from "./styled/NavLinkStyled"
-import { BookingStyledIcon, ContactStyledIcon, DashBoardStyledIcon, RoomsStyledIcon, UsersStyledIcon } from "./styled/IconsStyled"
-export const MenuUl = ()=>{
+import { NavLinkStyled } from "../styled/NavLinkStyled"
+import { BookingStyledIcon, ContactStyledIcon, DashBoardStyledIcon, RoomsStyledIcon, UsersStyledIcon } from "../Icons/IconsStyled"
+export const NavUl = ()=>{
     return(
         <ul>
             <li>

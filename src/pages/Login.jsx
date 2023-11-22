@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom"
 import Logo from "../assets/logo/logo.png"
-import { ButtonStyled } from "../components/styled/ButtonStyled"
-import { CardStyled } from "../components/styled/CardStyled"
-import { FormStyled } from "../components/styled/FormStyled"
+import { ButtonStyled } from "../components/common/ButtonStyled"
+import { CardStyled } from "../components/common/CardStyled"
+import { FormStyled } from "../components/common/FormStyled"
 
 
 

@@ -5,15 +5,26 @@ import 'swiper/css';
 
 
 
-import { CardReview } from './CardReview';
+import { CardReview } from '../CardReview';
+import { SwiperReviewStyled } from './SwiperReview';
 
 export const SwiperReviews = ()=>{
     return(
-        <Swiper
-        spaceBetween={30}
-          slidesPerView={3}
+        <SwiperReviewStyled
+          
+          slidesPerView={1}
           navigation
           loop={true}
+          breakpoints={{
+          
+            1000: {
+              slidesPerView: 2,
+            },
+            1500: {
+              slidesPerView: 3,
+            },
+          }}
+          
         >
           <SwiperSlide>
             <CardReview />
@@ -30,6 +41,6 @@ export const SwiperReviews = ()=>{
           <SwiperSlide>
             <CardReview />
           </SwiperSlide>
-        </Swiper>
+        </SwiperReviewStyled>
     )
 }

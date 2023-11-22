@@ -12,7 +12,7 @@ import { createGlobalStyle } from "styled-components";
    
     #root{
         
-        height: 100vh;
+        height: 100svh;
         display: flex;
         align-items: center;
     }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardDashBoardStyled = styled.div`
+export const KpiCardStyled = styled.div`
     background-color: #FFF;
     padding: 3em;
     display: flex;

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Login } from './pages/Login'
-import { GlobalStyles } from './components/styled/Global'
+import { GlobalStyles } from './components/common/Global'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Root } from './pages/Root'
 import { DashBoard } from './pages/DashBoard'

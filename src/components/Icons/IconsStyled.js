@@ -19,6 +19,8 @@ import { FaRegCircleXmark } from "react-icons/fa6";
 
 import { PiDotsThreeOutlineVerticalFill } from "react-icons/pi";
 
+import { FaPhone } from "react-icons/fa6";
+
 const NavSharedIconStyle = `
     width: 24px;
     height: 24px;
@@ -103,4 +105,10 @@ export const DotsStyledIcon = styled(PiDotsThreeOutlineVerticalFill)`
     width: 24px;
     height: 24px;
     color: #6E6E6E;
+`
+
+export const PhoneStyledIcon = styled(FaPhone)`
+    width: 24px;
+    height: 24px;
+    color: #000; 
 `

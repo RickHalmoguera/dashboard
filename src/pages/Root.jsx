@@ -1,9 +1,9 @@
-import { OutletStyled } from "../components/styled/OutletStyled";
+import { OutletStyled } from "../components/Root/OutletStyled";
 import { Outlet } from "react-router-dom";
-import { Nav } from "../components/Nav";
-import { RootStyled } from "../components/styled/RootStyled";
+import { Nav } from "../components/Nav/Nav";
+import { RootStyled } from "../components/Root/RootStyled";
 import { TopBar } from "../components/TopBar";
-import { FlexColumnStyled } from "../components/styled/FlexColumnStyled";
+import { FlexColumnStyled } from "../components/Root/FlexColumnStyled";
 import { useState } from "react";
 
 

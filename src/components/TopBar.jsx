@@ -1,11 +1,22 @@
 import { TopBarStyled } from "./styled/TopBarStyled";
-import { ArrowLeftStyledIcon, ArrowRightStyledIcon, MailStyledIcon, BellStyledIcon, LogoutStyledIcon } from "./styled/IconsStyled";
+import { ArrowLeftStyledIcon, ArrowRightStyledIcon, MailStyledIcon, BellStyledIcon, LogoutStyledIcon } from "./Icons/IconsStyled";
 import { TopBarIconsContainerStyled } from "./styled/TopBarIconsContainerStyled";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
+const routePageMapping = {
+  '/': 'Login',
+  '/root/dashboard': 'Dashboard',
+  '/root/booking': 'Booking',
+  '/root/rooms': 'Rooms',
+  '/root/contact': 'Contact',
+  '/root/users': 'Users',
+};
 
 export const TopBar = ({ onToggleMenu, isMenuOpen }) => {
     const navigate = useNavigate()
-
+    const location = useLocation();
+    const { pathname } = location;
+    const currentPage = routePageMapping[pathname] || 'Unknown Page';
     const handleLogOut = ()=>{
 
         navigate("/")
@@ -16,7 +27,7 @@ export const TopBar = ({ onToggleMenu, isMenuOpen }) => {
         <button onClick={onToggleMenu}>
           {isMenuOpen ? <ArrowLeftStyledIcon /> : <ArrowRightStyledIcon/>}
         </button>
-        <h1>Dashboard</h1>
+        <h1>{currentPage}</h1>
         <TopBarIconsContainerStyled>
           <MailStyledIcon />
           <BellStyledIcon />

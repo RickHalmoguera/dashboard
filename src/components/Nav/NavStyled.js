@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const NavStyled = styled.div`
-    max-width: 20%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -14,8 +13,7 @@ export const NavStyled = styled.div`
     }
 
     li{
-        margin-top: 4em;
-      
+     margin-bottom: 10%;
     }
 
     p{
