@@ -17,6 +17,7 @@ export const TableRooms = ()=>{
           <th>Rate</th>
           <th>Offer Price</th>
           <th>Status</th>
+          <th></th>
         </tr>
       </thead>
       <TableBodyStyled>
@@ -32,20 +33,21 @@ export const TableRooms = ()=>{
                 </p>
               </TableCardRoomStyled>
             </td>
+
             <td>
               <p>{room.bed}</p>
             </td>
+
             <td>
               <p>{room.amenities}</p>
             </td>
+
             <td>
               <p>{room.rate}/Night</p>
             </td>
+
             <td>
               <p>{room.rate - (room.rate * room.discount)}/Night</p>
-            </td>
-            <td>
-              <p>{room.Room}</p>
             </td>
             <td>
                 {room.available && <TableButton $bg="#5AD07A" $fc="#FFF">
@@ -54,11 +56,12 @@ export const TableRooms = ()=>{
                 {!room.available  && <TableButton $bg="#E23428" $fc="#FFF">
                     Booked
                 </TableButton>}
-               
             </td>
+
             <td>
               <DotsStyledIcon />
             </td>
+
           </tr>
         ))}
       </TableBodyStyled>
