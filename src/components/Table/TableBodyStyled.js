@@ -14,9 +14,20 @@ export const TableBodyStyled = styled.tbody`
         
     }
 
+    .clamp{
+        max-width: 30rem;
+    }
+
     p{
         font-size: 1.6rem;
         font-weight: 500;
         line-height: 2.5rem;
+    }
+
+    h2{
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 2.5rem;
+        margin-bottom: .5em;
     }
 `
