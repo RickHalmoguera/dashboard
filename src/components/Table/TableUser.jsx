@@ -34,9 +34,12 @@ export const TableUser = () => {
                 {user.description}
                 </p>
             </td>
-            <td className='flex'>
-                <PhoneStyledIcon/>
-                <p>{user.phone}</p>
+            <td>
+                <div className='flex'>
+                    <PhoneStyledIcon/>
+                    <p>{user.phone}</p>
+
+                </div>
             </td>
             <td>
                 {!user.status && <TableButton $bg="transparent" $fc="#E23428">INACTIVE</TableButton>}
