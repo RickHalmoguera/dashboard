@@ -3,7 +3,7 @@ import { FilterButtonStyled } from '../components/common/FilterButtonStyled'
 import { SelectButtonStyled } from '../components/common/SelectButtonStyled'
 
 import { TableUser } from "../components/Table/TableUser"
-import { InputStyled } from "../components/common/InputStyled"
+import { InputStyled } from "../components/Form/InputStyled"
 
 export const Users = ()=>{
     return(

@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom"
 import Logo from "../assets/logo/logo.png"
 import { ButtonStyled } from "../components/common/ButtonStyled"
 import { CardStyled } from "../components/common/CardStyled"
-import { FormStyled } from "../components/common/FormStyled"
-import { InputStyled } from "../components/common/InputStyled"
+import { FormStyled } from "../components/Form/FormStyled"
+import { InputStyled } from "../components/Form/InputStyled"
+import { LabelStyled } from "../components/Form/LabelStyled"
 
 
 
@@ -21,9 +22,9 @@ export const Login = ()=>{
         <CardStyled>
             <img src={Logo} alt="Logo"/>
             <FormStyled >
-                <label>User</label>
+                <LabelStyled>User</LabelStyled>
                 <InputStyled type="text" placeholder="Ricardo"/>
-                <label >Password</label>
+                <LabelStyled>Password</LabelStyled>
                 <InputStyled type="password" name="password" placeholder="test" />
             </FormStyled>
             <ButtonStyled 

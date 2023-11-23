@@ -2,8 +2,16 @@ import { FilterContainerStyled } from "../components/common/FilterContainerStyle
 import { FilterButtonStyled } from '../components/common/FilterButtonStyled'
 import { SelectButtonStyled } from '../components/common/SelectButtonStyled'
 import { TableRooms } from "../components/Table/TableRooms"
+import { ButtonStyled } from "../components/common/ButtonStyled"
+import { useNavigate } from "react-router-dom"
 
 export const Rooms = ()=>{
+    const navigate = useNavigate()
+
+    const handleClick =()=>{
+        navigate("/root/createroom")
+    }
+    
     return(
         <>
         <FilterContainerStyled>
@@ -22,10 +30,22 @@ export const Rooms = ()=>{
                 </FilterButtonStyled>
             </div>
 
-            <SelectButtonStyled>
-                <option value="newest">Newest</option>
-                <option value="oldest">Oldest</option>
-            </SelectButtonStyled>
+            <FilterContainerStyled>
+            <ButtonStyled 
+                onClick={handleClick}
+                type="submit" 
+                $bg="#135846"
+                $fc="#FFF"
+                >
+                    Create Room
+                </ButtonStyled>
+
+                <SelectButtonStyled>
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                </SelectButtonStyled>
+
+            </FilterContainerStyled>
         </FilterContainerStyled>
 
         <TableRooms/>

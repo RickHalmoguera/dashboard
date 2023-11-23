@@ -2,7 +2,7 @@ import { FilterContainerStyled } from "../components/common/FilterContainerStyle
 import { FilterButtonStyled } from '../components/common/FilterButtonStyled'
 import { SelectButtonStyled } from '../components/common/SelectButtonStyled'
 import { TableGuest } from '../components/Table/TableGuest'
-import { InputStyled } from "../components/common/InputStyled"
+import { InputStyled } from "../components/Form/InputStyled"
 
 
 export const Booking = ()=>{

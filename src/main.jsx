@@ -9,6 +9,8 @@ import { Booking } from './pages/Booking'
 import {Rooms} from './pages/Rooms'
 import {Contact} from './pages/Contact'
 import {Users} from  './pages/Users'
+import { EditUser } from './pages/EditUser'
+import { CreateRoom } from './pages/CreateRoom'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -23,6 +25,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/root/rooms' element={<Rooms/>}></Route>
           <Route path='/root/contact' element={<Contact/>}></Route>
           <Route path='/root/users' element={<Users/>}></Route>
+          <Route path='/root/edituser' element={<EditUser/>}> </Route>
+          <Route path='/root/createroom' element={<CreateRoom/>}> </Route>
         </Route>
       </Routes>
         
@@ -31,3 +35,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     
   </React.StrictMode>,
 )
+
