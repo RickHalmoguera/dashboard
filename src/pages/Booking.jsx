@@ -2,6 +2,7 @@ import { FilterContainerStyled } from "../components/common/FilterContainerStyle
 import { FilterButtonStyled } from '../components/common/FilterButtonStyled'
 import { SelectButtonStyled } from '../components/common/SelectButtonStyled'
 import { TableGuest } from '../components/Table/TableGuest'
+import { InputStyled } from "../components/common/InputStyled"
 
 
 export const Booking = ()=>{
@@ -24,7 +25,7 @@ export const Booking = ()=>{
                 <FilterButtonStyled>
                     Refund
                 </FilterButtonStyled>
-                <Input type="text" name="" id="" placeholder="Search Name" />
+                <InputStyled type="text" name="" id="" placeholder="Search Name" />
             </div>
                 <SelectButtonStyled>
                     <option value="newest">Newest</option>
