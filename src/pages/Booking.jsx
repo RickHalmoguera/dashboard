@@ -25,11 +25,15 @@ export const Booking = ()=>{
                     Refund
                 </FilterButtonStyled>
             </div>
+            <div>
+                <input type="text" name="" id="" placeholder="Search Name" />
+                <SelectButtonStyled>
+                    <input type="text" name="" id="" placeholder="Search Name" />
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                </SelectButtonStyled>
 
-            <SelectButtonStyled>
-                <option value="newest">Newest</option>
-                <option value="oldest">Oldest</option>
-            </SelectButtonStyled>
+            </div>
         </FilterContainerStyled>
         
         <TableGuest/>

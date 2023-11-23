@@ -18,6 +18,12 @@ export const TableBodyStyled = styled.tbody`
         max-width: 30rem;
     }
 
+    .flex{
+        display: flex;
+        gap: 1em;
+        align-items: center;
+    }
+
     p{
         font-size: 1.6rem;
         font-weight: 500;
