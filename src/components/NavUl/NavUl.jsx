@@ -1,49 +1,50 @@
-import { NavLinkStyled } from "../styled/NavLinkStyled"
+import { NavLinkStyled } from "./NavLinkStyled"
 import { BookingStyledIcon, ContactStyledIcon, DashBoardStyledIcon, RoomsStyledIcon, UsersStyledIcon } from "../Icons/IconsStyled"
+import { NavLiStyled, NavUlStyled } from "./NavUlStyled"
 export const NavUl = ()=>{
     return(
-        <ul>
-            <li>
+        <NavUlStyled>
+            <NavLiStyled>
                 <NavLinkStyled 
                 to="/root/dashboard"
                 >
                     <DashBoardStyledIcon/>
                     Dashboard
                 </NavLinkStyled>
-            </li>
-            <li>
+            </NavLiStyled>
+            <NavLiStyled>
                 <NavLinkStyled 
                 to="/root/booking"
                 >
                 <BookingStyledIcon />
                     Booking
                 </NavLinkStyled>
-            </li>
-            <li>
+            </NavLiStyled>
+            <NavLiStyled>
                 <NavLinkStyled 
                 to="/root/rooms"
                 >
                 <RoomsStyledIcon />
                     Rooms
                 </NavLinkStyled>
-            </li>
-            <li>
+            </NavLiStyled>
+            <NavLiStyled>
                 <NavLinkStyled 
                 to="/root/contact"
                 >
                 <ContactStyledIcon />
                     Contact
                 </NavLinkStyled>
-            </li>
-            <li>
+            </NavLiStyled>
+            <NavLiStyled>
                 <NavLinkStyled 
                 to="/root/users"
                 >
                 <UsersStyledIcon />
                     Users
                 </NavLinkStyled>
-            </li>
-        </ul>
+            </NavLiStyled>
+        </NavUlStyled>
 
     )
 }

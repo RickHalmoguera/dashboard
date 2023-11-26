@@ -9,10 +9,7 @@ import { useState } from "react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
-
-export const Login = ()=>{
+export const LoginPage = ()=>{
     const loginError = () => toast.error("Cant Login, please use the data in the Placeholders");
     const [user, setUser]=useState("")
     const [password, setPassword] = useState("")
@@ -40,7 +37,6 @@ export const Login = ()=>{
     }
 
     return(
-        
         <LoginContainer>
             <ToastContainer
                 position="top-center"

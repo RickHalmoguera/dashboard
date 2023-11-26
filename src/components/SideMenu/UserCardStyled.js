@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardStyled = styled.div`
+export const UserCardStyled = styled.div`
     margin: 0 auto;
     max-width: 30rem;
     border-radius: 2em ;

@@ -5,7 +5,7 @@ import { TableGuest } from '../components/Table/TableGuest'
 import { InputStyled } from "../components/Form/InputStyled"
 
 
-export const Booking = ()=>{
+export const BookingPage = ()=>{
     return(
         <>
         <FilterContainerStyled>

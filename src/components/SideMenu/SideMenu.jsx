@@ -1,21 +1,21 @@
-import { NavStyled } from "./NavStyled"
 import { UserCard } from "./UserCard"
 import { NavUl } from "../NavUl/NavUl"
 import { Logo } from "../Logo/Logo"
+import { SideMenuFooter, SideMenuStyled } from "./SideMenuStyled"
 
-export const Nav = ({isVisible }) =>{
+export const SideMenu = ({isVisible }) =>{
     return(
 
-        isVisible && <NavStyled>
+        isVisible && <SideMenuStyled>
             <Logo/>
             <NavUl/>
             <UserCard/>
-            <div>
+            <SideMenuFooter>
                 <h2>Travl Hotel Admin Dashboard</h2>
                 <p>© 2020 All Rights Reserved</p>
-            </div>
-            <p>Made with ♥ by Ricardo</p>
+                <p>Made with ♥ by Ricardo</p>
+            </SideMenuFooter>
             
-        </NavStyled>
+        </SideMenuStyled>
     )
 }
