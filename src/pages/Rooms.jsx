@@ -2,7 +2,7 @@ import { FilterContainerStyled } from "../components/common/FilterContainerStyle
 import { FilterButtonStyled } from '../components/common/FilterButtonStyled'
 import { SelectButtonStyled } from '../components/common/SelectButtonStyled'
 import { TableRooms } from "../components/Table/TableRooms"
-import { ButtonStyled } from "../components/common/ButtonStyled"
+import { ButtonStyled } from "../components/Button/ButtonStyled"
 import { useNavigate } from "react-router-dom"
 
 export const Rooms = ()=>{

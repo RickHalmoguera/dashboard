@@ -1,6 +1,6 @@
 import { CardStyled } from "../common/CardStyled"
 import RicardoPhoto from "../../assets/users/ricardo.jpg"
-import { ButtonStyled } from "../common/ButtonStyled"
+import { ButtonStyled } from "../Button/ButtonStyled"
 import { useNavigate } from "react-router-dom"
 
 

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const LabelStyled = styled.label`
-    font-size: 2rem;
-    font-weight: 500;
+    text-align: left;
+    font-size: 1.6rem;
+    font-weight: 400;
     line-height: 3rem;   
 `

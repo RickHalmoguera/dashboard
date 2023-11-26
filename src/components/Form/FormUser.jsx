@@ -1,4 +1,4 @@
-import { ButtonStyled } from "../common/ButtonStyled"
+import { ButtonStyled } from "../Button/ButtonStyled"
 import { FormStyled } from "./FormStyled"
 import { LabelStyled } from "./LabelStyled"
 
