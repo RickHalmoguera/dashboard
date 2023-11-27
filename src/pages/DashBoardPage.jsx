@@ -1,11 +1,11 @@
-
-
 import { KpiCard } from "../components/DashBoard/KpiCard"
 import { DashBoardBottomContainerStyled, DashBoardHeading, DashBoardStyled, DashBoardTopContainerStyled } from "../components/DashBoard/DashBoardStyled"
 import { BedStyledIcon, CalendarDashStyledIcon,CheckInStyledIcon, CheckOutStyledIcon } from "../components/Icons/IconsStyled"
-
+import { SwiperReviews } from "../components/SwiperReviews/SwiperReviews"
+import { useDispatch } from "react-redux"
 
 export const DashBoardPage = ()=>{
+    const dispatch = useDispatch()
     return(
         <DashBoardStyled>
             <DashBoardTopContainerStyled>
@@ -16,6 +16,7 @@ export const DashBoardPage = ()=>{
             </DashBoardTopContainerStyled>
             <DashBoardBottomContainerStyled>
                 <DashBoardHeading>Latest Reviews by Customers</DashBoardHeading>
+                <SwiperReviews/>
             </DashBoardBottomContainerStyled>
         </DashBoardStyled>
         

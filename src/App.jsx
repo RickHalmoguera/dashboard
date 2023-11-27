@@ -10,6 +10,8 @@ import { Contact } from './pages/Contact';
 import { Users } from './pages/Users';
 import { EditUser } from './pages/EditUser';
 import { CreateRoom } from './pages/CreateRoom';
+import { Provider } from 'react-redux'
+import { store } from './app/store.js'
 
 export const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -19,6 +21,7 @@ export const App = () => {
 
   return (
     <React.StrictMode>
+      <Provider store={store}>
       <BrowserRouter>
         <GlobalStyles />
         <Routes>
@@ -38,6 +41,7 @@ export const App = () => {
           )}
         </Routes>
       </BrowserRouter>
+      </Provider>
     </React.StrictMode>
   );
 };
