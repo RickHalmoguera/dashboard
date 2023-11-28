@@ -18,10 +18,12 @@ import {
   getCommentsData,
   getCommentsError,
   getCommentsStatus,
+  updateCommentStatus,
 } from "../../features/comments/commentsSlice";
+
 import { getCommentsListFromAPIThunk } from "../../features/comments/commentsThunk";
 
-export const TableContact = ({ isFiltered }) => {
+export const TableContact = ({ isFiltered, selectedSortOption }) => {
   const dispatch = useDispatch();
   const commentsListData = useSelector(getCommentsData)
   const commentsListError = useSelector(getCommentsError)
@@ -36,6 +38,12 @@ export const TableContact = ({ isFiltered }) => {
   const displayedComments = filteredCommentList.slice(startIndex, endIndex)
   const totalPages = Math.ceil(filteredCommentList.length / itemsPerPage);
 
+  const handleStatusChange =(comment)=>{
+    const commentToArchive = comment.id
+    const updatedStatus = commentsListData.map((item)=> item.id === commentToArchive ? {...item,is_archived:!item.is_archived} : item)  
+    dispatch(updateCommentStatus(updatedStatus))
+  }
+  
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
@@ -43,7 +51,7 @@ export const TableContact = ({ isFiltered }) => {
   const FormatDate = (date) => {
     const inputDate = new Date(date);
 
-    const formattedDate = `${inputDate
+    const formatedDate = `${inputDate
       .getDate()
       .toString()
       .padStart(2, "0")}-${(inputDate.getMonth() + 1)
@@ -55,27 +63,32 @@ export const TableContact = ({ isFiltered }) => {
       hour12: true,
     })}`;
 
-    return formattedDate;
+    return formatedDate;
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      if (commentsListStatus === "idle") {
-        dispatch(getCommentsListFromAPIThunk());
-      } else if (commentsListStatus === "pending") {
-        setSpinner(true);
-      } else if (commentsListStatus === "fulfilled") {
-        const newFilteredCommentList = isFiltered
-          ? commentsListData.filter((comment) => comment.is_archived === true)
-          : commentsListData;
+  
+    if (commentsListStatus === "idle") {
+      dispatch(getCommentsListFromAPIThunk());
+    } else if (commentsListStatus === "pending") {
+      setSpinner(true);
+    } else if (commentsListStatus === "fulfilled") {
+      const newFilteredCommentList = isFiltered
+        ? commentsListData.filter((comment) => comment.is_archived === true)
+        : commentsListData.filter((comment) => comment.is_archived === false);
+      console.log(selectedSortOption)
+        if (selectedSortOption === "newest") {
+          newFilteredCommentList.sort((a, b) => new Date(b.date) - new Date(a.date));
+        } else if (selectedSortOption === "oldest") {
+          newFilteredCommentList.sort((a, b) => new Date(a.date) - new Date(b.date));
+        }
 
-        setFilteredCommentList(newFilteredCommentList);
-        setSpinner(false)
-      }
-    };
+      setFilteredCommentList(newFilteredCommentList);
+      setSpinner(false)
+    }
+    
 
-    fetchData();
-  }, [dispatch, commentsListData, commentsListStatus, isFiltered]);
+  }, [dispatch, commentsListData, commentsListStatus, isFiltered,selectedSortOption]);
 
   return (
     <>
@@ -108,8 +121,13 @@ export const TableContact = ({ isFiltered }) => {
                 <TdText>{comment.text}</TdText>
               </td>
               <TdBtnStyled>
-                <TableUserBtn>Archive</TableUserBtn>
+                <TableUserBtn onClick={() => handleStatusChange(comment)} 
+                  $color={comment.is_archived?"#5AD07A":"#E23428"}
+                >
+                  {comment.is_archived?"Publish":"Archive"}
+                </TableUserBtn>
               </TdBtnStyled>
+
 
               <td>
                 <DotsStyledIcon />

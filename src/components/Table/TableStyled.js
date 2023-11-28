@@ -71,7 +71,7 @@ export const TableUserBtn = styled.button`
     background-color:transparent;
     font-size: 1.8rem;
     font-weight: 600;
-    color: #E23428;
+    color: ${({$color})=> $color};
     text-align: left;
     cursor: pointer;
 `

@@ -9,6 +9,13 @@ import { useState } from "react"
 
 export const ContactPage = ()=>{
     const [isFiltered, setIsFiltered] = useState(false)
+    const [selectedSortOption, setSelectedSortOption] = useState("newest");
+
+
+    const handleSort =(e)=>{
+        const selectedOption = e.target.value
+        setSelectedSortOption(selectedOption)
+    }
 
     const SetNoFilterTable =()=>{
         setIsFiltered(false)
@@ -33,13 +40,13 @@ export const ContactPage = ()=>{
                     </FilterButtonStyled>
                 </div>
 
-                <SelectButtonStyled>
+                <SelectButtonStyled onChange={handleSort} value={selectedSortOption}>
                     <option value="newest">Newest</option>
                     <option value="oldest">Oldest</option>
                 </SelectButtonStyled>
             </FilterContainerStyled>
 
-            <TableContact isFiltered={isFiltered}/>
+            <TableContact isFiltered={isFiltered} selectedSortOption={selectedSortOption}/>
         </ContactStyled>
     )
 }

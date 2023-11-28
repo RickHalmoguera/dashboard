@@ -9,6 +9,9 @@ export const CommentSlice = createSlice({
         error: null
     },   
     reducers:{
+        updateCommentStatus: (state,action)=>{
+            state.data= action.payload
+        }
        // getElementById: (state,action) => state.data.filter((room) => room.id === action.payload),
        // addRoomElement: (state,action) => {
        //     state.data = [action.payload,...state.data]
@@ -30,6 +33,7 @@ export const CommentSlice = createSlice({
     }
 });
 
+export const {updateCommentStatus} = CommentSlice.actions
 export const getCommentsData = state => state.comments.data
 export const getCommentsStatus = state => state.comments.status
 export const getCommentsError = state => state.comments.error
