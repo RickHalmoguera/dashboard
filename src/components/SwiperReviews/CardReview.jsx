@@ -1,19 +1,59 @@
 import { CardReviewStyled, CardReviewUserContainer, CommentText, ReviewTime, UserImg, UserName } from "./CardReviewStyled";
-import RicardoPhoto from "../../assets/users/ricardo.jpg"
-
-
 import { XCircleStyledIcon } from "../Icons/IconsStyled";
 
-export const CardReview = ()=>{
-    return(
-        <CardReviewStyled>
-            <CommentText>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</CommentText>
+import { useState } from "react";
+import { ModalReviews } from "../Modal/ModalReviews";
 
-            <CardReviewUserContainer>
-                <UserImg src={RicardoPhoto} alt="" />
-                <UserName>Kusnaidi Anderson <br /><ReviewTime>4m ago</ReviewTime></UserName>
-                <XCircleStyledIcon />
-            </CardReviewUserContainer>
-        </CardReviewStyled>
+
+
+export const CardReview = ({comment})=>{
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const givenDateString = comment.date;
+    const givenDate = new Date(givenDateString);
+    let elapsedTime = 0;
+    const currentDate = new Date();
+    const timeDifference = currentDate - givenDate;
+    const minutes = Math.floor(timeDifference / (1000 * 60));
+    const days = Math.floor(minutes / (24 * 60));
+
+    if (days > 0) {
+    elapsedTime= `${days} days ago`;
+    } else {
+    elapsedTime=`${minutes} minutes ago`;
+    }
+    
+    const openModal = () => {
+        setIsModalOpen(true);
+        console.log("hola")
+      };
+    
+      const closeModal = () => {
+        setIsModalOpen(false);
+      };
+
+    return(
+        <>
+            <ModalReviews 
+                isOpen={isModalOpen}
+                onRequestClose={closeModal}
+                title={comment.title}
+                text={comment.text}
+            />
+            <CardReviewStyled>
+                
+                <CommentText onClick={openModal} >
+                    {comment.text}
+                </CommentText>
+                
+                <CardReviewUserContainer >
+                    <UserImg src={comment.photo} alt="Profile pic" />
+                    <UserName>{comment.name} <br /><ReviewTime>{elapsedTime}</ReviewTime></UserName>
+                    <XCircleStyledIcon />
+                </CardReviewUserContainer>
+                
+
+            </CardReviewStyled>
+        
+        </>
     )
 }

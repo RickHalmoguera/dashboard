@@ -15,12 +15,15 @@ export const DashBoardTopContainerStyled =  styled.div`
     gap:2em
 `
 export const DashBoardBottomContainerStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 36.5rem;
     margin: 0 auto;
     width: 100%;
     background-color:#FFF;
     padding: 2em;
     border-radius: 1em;
-    overflow: hidden;
+    max-width: 150rem;
 
 `
 export const DashBoardHeading= styled.div`

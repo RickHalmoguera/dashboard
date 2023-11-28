@@ -6,7 +6,7 @@ import { Root } from './pages/Root';
 import { DashBoardPage } from './pages/DashBoardPage';
 import { BookingPage } from './pages/BookingPage';
 import { Rooms } from './pages/Rooms';
-import { Contact } from './pages/Contact';
+import { ContactPage } from './pages/ContactPage';
 import { Users } from './pages/Users';
 import { EditUser } from './pages/EditUser';
 import { CreateRoom } from './pages/CreateRoom';
@@ -31,7 +31,7 @@ export const App = () => {
               <Route path='/root/dashboard' element={<DashBoardPage />} />
               <Route path='/root/booking' element={<BookingPage />} />
               <Route path='/root/rooms' element={<Rooms />} />
-              <Route path='/root/contact' element={<Contact />} />
+              <Route path='/root/contact' element={<ContactPage />} />
               <Route path='/root/users' element={<Users />} />
               <Route path='/root/edituser' element={<EditUser />} />
               <Route path='/root/createroom' element={<CreateRoom />} />

@@ -1,56 +1,140 @@
-import { TableBodyStyled } from "./TableBodyStyled"
-import { TableStyled } from "./TableStyled"
-import CommentList from "../../assets/JSON/comments.json"
-import {TableCardRoomStyled} from "./TableCardRoomStyled"
-import { TableButton } from "./TableButton"
-import { DotsStyledIcon } from "../Icons/IconsStyled"
+import React, { useState, useEffect } from "react";
+import {
+  TableStyled,
+  TableUserBtn,
+  TdBtnStyled,
+  TdHeadind,
+  TdIdText,
+  TdStyled,
+  TdSubText,
+  TdText,
+  TrHeadStyled,
+  TrStyled,
+} from "./TableStyled";
 
-export const TableContact = ()=>{
-    return(
-        <>
-        <TableStyled>
-      <thead>
-        <tr>
-          <th>Date & Id</th>
-          <th>Customer, Email & Phone</th>
-          <th>Comment</th>
-          <th></th>
-        </tr>
-      </thead>
-      <TableBodyStyled>
-        {CommentList.map((comment) => (
-          <tr key={comment.id}>
-            <td>
-                <p>{comment.date} </p>
-                <p>{comment.dateTime}</p>
-                <p># {comment.id}</p>
-            </td>
+import { DotsStyledIcon } from "../Icons/IconsStyled";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getCommentsData,
+  getCommentsError,
+  getCommentsStatus,
+} from "../../features/comments/commentsSlice";
+import { getCommentsListFromAPIThunk } from "../../features/comments/commentsThunk";
 
-            <td>
-              <p>{comment.name}</p>
-              <p>{comment.email}</p>
-              <p>{comment.phone}</p>
-            </td>
+export const TableContact = ({ isFiltered }) => {
+  const dispatch = useDispatch();
+  const commentsListData = useSelector(getCommentsData)
+  const commentsListError = useSelector(getCommentsError)
+  const commentsListStatus = useSelector(getCommentsStatus)
+  const [spinner, setSpinner] = useState(true)
+  const itemsPerPage = 2;
+  const [currentPage, setCurrentPage] = useState(1)
+  const [filteredCommentList, setFilteredCommentList] = useState([])
 
-            <td className="clamp">
-              <h2>{comment.commentTitle}</h2>
-              <p>{comment.comment}</p>
-            </td>
-            <td>
-                <TableButton $bg="transparent" $fc="#E23428">
-                    Archive
-                </TableButton>
-              
-            </td>
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage;
+  const displayedComments = filteredCommentList.slice(startIndex, endIndex)
+  const totalPages = Math.ceil(filteredCommentList.length / itemsPerPage);
 
-            <td>
-              <DotsStyledIcon />
-            </td>
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
+  const FormatDate = (date) => {
+    const inputDate = new Date(date);
+
+    const formattedDate = `${inputDate
+      .getDate()
+      .toString()
+      .padStart(2, "0")}-${(inputDate.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}-${inputDate.getFullYear()} 
+    ${inputDate.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    })}`;
+
+    return formattedDate;
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (commentsListStatus === "idle") {
+        dispatch(getCommentsListFromAPIThunk());
+      } else if (commentsListStatus === "pending") {
+        setSpinner(true);
+      } else if (commentsListStatus === "fulfilled") {
+        const newFilteredCommentList = isFiltered
+          ? commentsListData.filter((comment) => comment.is_archived === true)
+          : commentsListData;
+
+        setFilteredCommentList(newFilteredCommentList);
+        setSpinner(false)
+      }
+    };
+
+    fetchData();
+  }, [dispatch, commentsListData, commentsListStatus, isFiltered]);
+
+  return (
+    <>
+      <TableStyled>
+        <thead>
+          <tr>
+            <TrHeadStyled>Date & Id</TrHeadStyled>
+            <TrHeadStyled>Customer, Email & Phone</TrHeadStyled>
+            <TrHeadStyled>Comment</TrHeadStyled>
+            <TrHeadStyled>Action</TrHeadStyled>
+            <TrHeadStyled></TrHeadStyled>
           </tr>
-        ))}
-      </TableBodyStyled>
-    </TableStyled>
-        </>
-    )
-}
+        </thead>
+        <tbody>
+          {displayedComments.map((comment) => (
+            <TrStyled key={comment.id}>
+              <TdStyled>
+                <TdHeadind>{FormatDate(comment.date)}</TdHeadind>
+                <TdIdText># {comment.id}</TdIdText>
+              </TdStyled>
+
+              <TdStyled>
+                <TdHeadind>{comment.name}</TdHeadind>
+                <TdText>{comment.email}</TdText>
+                <TdSubText>{comment.phone}</TdSubText>
+              </TdStyled>
+
+              <td>
+                <TdHeadind>{comment.title}</TdHeadind>
+                <TdText>{comment.text}</TdText>
+              </td>
+              <TdBtnStyled>
+                <TableUserBtn>Archive</TableUserBtn>
+              </TdBtnStyled>
+
+              <td>
+                <DotsStyledIcon />
+              </td>
+            </TrStyled>
+          ))}
+        </tbody>
+      </TableStyled>
+      <div>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages || totalPages === 0}
+        >
+          Next
+        </button>
+      </div>
+    </>
+  );
+};

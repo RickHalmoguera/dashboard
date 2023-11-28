@@ -3,10 +3,14 @@ import styled from "styled-components";
 
 export const CardReviewStyled = styled.div`
     border: 1px solid #EBEBEB;
+    height:23rem;
     border-radius: 1em;
     background-color: #FFF;
     padding: 2em;
     max-width: 43rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `
 
 export const CommentText = styled.p`
