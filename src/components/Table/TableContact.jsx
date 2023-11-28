@@ -76,7 +76,7 @@ export const TableContact = ({ isFiltered, selectedSortOption }) => {
       const newFilteredCommentList = isFiltered
         ? commentsListData.filter((comment) => comment.is_archived === true)
         : commentsListData.filter((comment) => comment.is_archived === false);
-      console.log(selectedSortOption)
+      
         if (selectedSortOption === "newest") {
           newFilteredCommentList.sort((a, b) => new Date(b.date) - new Date(a.date));
         } else if (selectedSortOption === "oldest") {
@@ -85,6 +85,7 @@ export const TableContact = ({ isFiltered, selectedSortOption }) => {
 
       setFilteredCommentList(newFilteredCommentList);
       setSpinner(false)
+      setCurrentPage(1)
     }
     
 
