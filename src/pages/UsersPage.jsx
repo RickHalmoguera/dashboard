@@ -6,7 +6,7 @@ import { TableUser } from "../components/Table/TableUser"
 import { InputStyled } from "../components/Form/InputStyled"
 
 
-export const Users = ()=>{
+export const UsersPage = ()=>{
   
     return(
         <>

@@ -17,13 +17,12 @@ export const ContactPage = ()=>{
         setSelectedSortOption(selectedOption)
     }
 
-    const SetNoFilterTable =()=>{
-        setIsFiltered(false)
-    }
+  
 
     const SetFilterTable = ()=>{
-        setIsFiltered(true)
+        setIsFiltered(!isFiltered)
     }
+
     return(
         <ContactStyled>
             <ContactTopContainerStyled>
@@ -31,14 +30,15 @@ export const ContactPage = ()=>{
             </ContactTopContainerStyled>
             
             <FilterContainerStyled>
-                <div className="filterContainer">
-                    <FilterButtonStyled onClick={SetNoFilterTable}>
+                <div>
+                    <FilterButtonStyled onClick={SetFilterTable}>
                         All Contacts
                     </FilterButtonStyled>
-                    <FilterButtonStyled on onClick={SetFilterTable}>
+                    <FilterButtonStyled onClick={SetFilterTable}>
                         Archived
                     </FilterButtonStyled>
                 </div>
+                
 
                 <SelectButtonStyled onChange={handleSort} value={selectedSortOption}>
                     <option value="newest">Newest</option>

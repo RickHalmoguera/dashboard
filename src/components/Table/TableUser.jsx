@@ -1,54 +1,46 @@
-import { TableStyled } from './TableStyled';
-import { TableBodyStyled } from './TableBodyStyled';
-import { TableButton } from './TableButton';
+import { TableStyled, TableUserBtn, TdBtnStyled, TdFlex, TdHeadind, TdIdText, TdStyled, TdSubText, TdText, TdUserCardStyled, TrHeadStyled, TrStyled } from './TableStyled';
 import { DotsStyledIcon, PhoneStyledIcon } from '../../components/Icons/IconsStyled';
 import UserList from '../../assets/JSON/users.json';
-import { TableCardUserStyled } from './TableUserCardStyled';
+
 
 export const TableUser = () => {
+  
   return (
     <TableStyled>
       <thead>
         <tr>
-          <th>Employee</th>
-          <th>Job Description</th>
-          <th>Contact</th>
-          <th>Status</th>
+          <TrHeadStyled>Employee</TrHeadStyled>
+          <TrHeadStyled>Job Description</TrHeadStyled>
+          <TrHeadStyled>Contact</TrHeadStyled>
+          <TrHeadStyled>Status</TrHeadStyled>
         </tr>
       </thead>
-      <TableBodyStyled>
+      <tbody>
         {UserList.map((user) => (
-          <tr key={user.id}>
+          <TrStyled key={user.id}>
+            <TdUserCardStyled>
+              <img src={user.photo} alt="" />
+              <div>
+                  <TdHeadind>{user.name}</TdHeadind>
+                  <TdIdText># {user.id}</TdIdText>
+                  <TdSubText>{user.start_date}</TdSubText>
+              </div>
+            </TdUserCardStyled>
             <td>
-              <TableCardUserStyled>
-                <img src={user.photo} alt="" />
-                <div>
-                    <strong>{user.name}</strong>
-                    <p>{user.id}</p>
-                    <span>{user.date}</span>
-                </div>
-              </TableCardUserStyled>
+              <TdText>{user.description}</TdText>
             </td>
-            <td className='clamp'>
-              <p>
-                {user.description}
-                </p>
-            </td>
-            <td>
-                <div className='flex'>
-                    <PhoneStyledIcon/>
-                    <p>{user.phone}</p>
+            <TdFlex>
+              <PhoneStyledIcon/>
+              <TdText>{user.phone}</TdText>
+            </TdFlex>
 
-                </div>
-            </td>
-            <td>
-                {!user.status && <TableButton $bg="transparent" $fc="#E23428">INACTIVE</TableButton>}
-                {user.status  && <TableButton $bg="transparent" $fc="#5AD07A">ACTIVE</TableButton>}
-              
-            </td>
-          </tr>
+            <TdBtnStyled>
+                {!user.is_active && <TableUserBtn $bg="transparent" $color="#E23428">INACTIVE</TableUserBtn>}
+                {user.is_active  && <TableUserBtn $bg="transparent" $color="#5AD07A">ACTIVE</TableUserBtn>}
+            </TdBtnStyled>
+          </TrStyled>
         ))}
-      </TableBodyStyled>
+      </tbody>
     </TableStyled>
   );
 };

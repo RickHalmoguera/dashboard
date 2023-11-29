@@ -1,5 +1,5 @@
 import { TableStyled } from './TableStyled';
-import { TableBodyStyled } from './TableBodyStyled';
+
 import { TableCardGuestStyled } from './TableCardGuestStyled';
 import { TableButton } from './TableButton';
 import { DotsStyledIcon } from '../../components/Icons/IconsStyled';
@@ -19,7 +19,7 @@ export const TableGuest = () => {
           <th>Status</th>
         </tr>
       </thead>
-      <TableBodyStyled>
+      <tbody>
         {GuestList.map((guest) => (
           <tr key={guest.id}>
             <td>
@@ -80,7 +80,7 @@ export const TableGuest = () => {
             </td>
           </tr>
         ))}
-      </TableBodyStyled>
+      </tbody>
     </TableStyled>
   );
 };

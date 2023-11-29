@@ -1,4 +1,4 @@
-import { TableBodyStyled } from "./TableBodyStyled"
+
 import { TableStyled } from "./TableStyled"
 import RoomList from "../../assets/JSON/rooms.json"
 import {TableCardRoomStyled} from "./TableCardRoomStyled"
@@ -20,7 +20,7 @@ export const TableRooms = ()=>{
           <th></th>
         </tr>
       </thead>
-      <TableBodyStyled>
+      <td>
         {RoomList.map((room) => (
           <tr key={room.id}>
             <td>
@@ -64,7 +64,7 @@ export const TableRooms = ()=>{
 
           </tr>
         ))}
-      </TableBodyStyled>
+      </td>
     </TableStyled>
         </>
     )

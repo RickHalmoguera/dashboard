@@ -9,7 +9,18 @@ export const TableStyled = styled.table`
     padding: 2em;
     border-spacing: 1rem 2em;
     height: 60rem;
+`
 
+export const TdUserCardStyled = styled.td`
+    width:30rem ;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    img{
+        width: 88px;
+        height: 88px;
+        border-radius:1em;
+    }
 
 `
 export const TrStyled = styled.tr `
@@ -20,11 +31,16 @@ export const TrStyled = styled.tr `
 
 export const TdStyled = styled.td`
     width: 18rem;
-    padding: 2em 0;
+`
+
+export const TdFlex = styled.td`
+    width: 20rem;
+    display: flex;
+    align-items: center;
+    gap: 1em;
 `
 export const TdBtnStyled = styled.td`
     width: 10rem;
-    padding: 2em 0;
 `
 
 export const TrHeadStyled = styled.th `
