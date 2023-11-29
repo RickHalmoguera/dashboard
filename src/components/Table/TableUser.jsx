@@ -29,10 +29,12 @@ export const TableUser = () => {
             <td>
               <TdText>{user.description}</TdText>
             </td>
-            <TdFlex>
-              <PhoneStyledIcon/>
-              <TdText>{user.phone}</TdText>
-            </TdFlex>
+            <td>
+              <TdFlex>
+                <PhoneStyledIcon/>
+                <TdText>{user.phone}</TdText>
+              </TdFlex>
+            </td>
 
             <TdBtnStyled>
                 {!user.is_active && <TableUserBtn $bg="transparent" $color="#E23428">INACTIVE</TableUserBtn>}
