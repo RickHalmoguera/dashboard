@@ -9,8 +9,11 @@ export const CommentSlice = createSlice({
         error: null
     },   
     reducers:{
-        updateCommentStatus: (state,action)=>{
-            state.data= action.payload
+       
+        changeCommentStatus: (state,action)=>{
+            const commentToArchive = action.payload
+            const updatedStatus = state.data.map((item)=> item.id === commentToArchive ? {...item,is_archived:!item.is_archived} : item) 
+            state.data = updatedStatus 
         }
        // getElementById: (state,action) => state.data.filter((room) => room.id === action.payload),
        // addRoomElement: (state,action) => {
@@ -33,7 +36,7 @@ export const CommentSlice = createSlice({
     }
 });
 
-export const {updateCommentStatus} = CommentSlice.actions
+export const {changeCommentStatus} = CommentSlice.actions
 export const getCommentsData = state => state.comments.data
 export const getCommentsStatus = state => state.comments.status
 export const getCommentsError = state => state.comments.error

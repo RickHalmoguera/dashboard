@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getUsersListFromAPIThunk } from "./usersThunk";
 
+
 export const UsersSlice = createSlice({
     name: "users",
     initialState:{

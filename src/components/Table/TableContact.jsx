@@ -15,16 +15,16 @@ import {
 import { DotsStyledIcon } from "../Icons/IconsStyled";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  changeCommentStatus,
   getCommentsData,
   getCommentsError,
   getCommentsStatus,
-  updateCommentStatus,
 } from "../../features/comments/commentsSlice";
 
 import { getCommentsListFromAPIThunk } from "../../features/comments/commentsThunk";
 
 export const TableContact = ({ isFiltered, selectedSortOption }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const commentsListData = useSelector(getCommentsData)
   const commentsListError = useSelector(getCommentsError)
   const commentsListStatus = useSelector(getCommentsStatus)
@@ -38,10 +38,8 @@ export const TableContact = ({ isFiltered, selectedSortOption }) => {
   const displayedComments = filteredCommentList.slice(startIndex, endIndex)
   const totalPages = Math.ceil(filteredCommentList.length / itemsPerPage);
 
-  const handleStatusChange =(comment)=>{
-    const commentToArchive = comment.id
-    const updatedStatus = commentsListData.map((item)=> item.id === commentToArchive ? {...item,is_archived:!item.is_archived} : item)  
-    dispatch(updateCommentStatus(updatedStatus))
+  const handleStatusChange =(id)=>{
+    dispatch(changeCommentStatus(id))
   }
   
   const handlePageChange = (newPage) => {
@@ -122,7 +120,7 @@ export const TableContact = ({ isFiltered, selectedSortOption }) => {
                 <TdText>{comment.text}</TdText>
               </td>
               <TdBtnStyled>
-                <TableUserBtn onClick={() => handleStatusChange(comment)} 
+                <TableUserBtn onClick={() => handleStatusChange(comment.id)} 
                   $color={comment.is_archived?"#5AD07A":"#E23428"}
                 >
                   {comment.is_archived?"Publish":"Archive"}

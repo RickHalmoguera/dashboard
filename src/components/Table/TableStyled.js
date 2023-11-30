@@ -33,7 +33,7 @@ export const TdStyled = styled.td`
     width: 18rem;
 `
 
-export const TdFlex = styled.td`
+export const TdFlex = styled.div`
     width: 20rem;
     display: flex;
     align-items: center;

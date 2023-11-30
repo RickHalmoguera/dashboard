@@ -4,36 +4,46 @@ import { SelectButtonStyled } from '../components/common/SelectButtonStyled'
 
 import { TableUser } from "../components/Table/TableUser"
 import { InputStyled } from "../components/Form/InputStyled"
+import { useState } from "react"
 
 
 export const UsersPage = ()=>{
+    const [filterOption, setFilterOption] = useState("all")
+    const [selectedSortOption, setSelectedSortOption] = useState("newest");
+    const [searchName, setSearchName] = useState("")
+
+
+    const handleSort =(e)=>{
+        const selectedOption = e.target.value
+        setSelectedSortOption(selectedOption)
+    }
+
   
     return(
         <>
         <FilterContainerStyled>
             <div className="filterContainer">
-                <FilterButtonStyled>
+                <FilterButtonStyled onClick={()=> setFilterOption("all")}>
                     All Employees
                 </FilterButtonStyled>
-                <FilterButtonStyled>
+                <FilterButtonStyled onClick={()=> setFilterOption("active")}>
                     Active Employees
                 </FilterButtonStyled>
-                <FilterButtonStyled>
+                <FilterButtonStyled onClick={()=> setFilterOption("inactive")}>
                    Inactive Employees
                 </FilterButtonStyled>
-                <InputStyled type="text" name="" id="" placeholder="Search Name" />
+                <InputStyled type="text" name="" id="" placeholder="Search Name" onChange={(e)=> setSearchName(e.target.value)}/>
             </div>
 
-            
-                <SelectButtonStyled>
+                <SelectButtonStyled onChange={handleSort}  value={selectedSortOption}>
                     <option value="newest">Start Date</option>
-                    <option value="oldest">A-Z</option>
+                    <option value="abc">A-Z</option>
                 </SelectButtonStyled>
             
            
-        </FilterContainerStyled>
+        </FilterContainerStyled >
 
-        <TableUser/>
+        <TableUser FilterOption={filterOption} selectedSortOption={selectedSortOption} SearchName={searchName}/>
         </>
     )
 }
