@@ -12,6 +12,8 @@ import { EditUser } from './pages/EditUser';
 import { CreateRoom } from './pages/CreateRoom';
 import { Provider } from 'react-redux'
 import { store } from './app/store.js'
+import { NewUserPage } from './pages/NewUserPage.jsx';
+
 
 export const App = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -34,6 +36,7 @@ export const App = () => {
               <Route path='/root/contact' element={<ContactPage />} />
               <Route path='/root/users' element={<UsersPage />} />
               <Route path='/root/edituser' element={<EditUser />} />
+              <Route path='/root/newuser' element={<NewUserPage />} />
               <Route path='/root/createroom' element={<CreateRoom />} />
             </Route>
           ) : (

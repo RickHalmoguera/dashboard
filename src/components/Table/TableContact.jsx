@@ -29,10 +29,11 @@ export const TableContact = ({ isFiltered, selectedSortOption }) => {
   const commentsListError = useSelector(getCommentsError)
   const commentsListStatus = useSelector(getCommentsStatus)
   const [spinner, setSpinner] = useState(true)
+
+
   const itemsPerPage = 2;
   const [currentPage, setCurrentPage] = useState(1)
   const [filteredCommentList, setFilteredCommentList] = useState([])
-
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage;
   const displayedComments = filteredCommentList.slice(startIndex, endIndex)

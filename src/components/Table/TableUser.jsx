@@ -4,23 +4,31 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUsersData, getUsersError, getUsersStatus } from '../../features/users/usersSlice';
 import { useEffect, useState } from 'react';
 import { getUsersListFromAPIThunk } from '../../features/users/usersThunk';
+import { useNavigate } from 'react-router-dom';
 
 
 export const TableUser = ({FilterOption, selectedSortOption, SearchName}) => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const usersListData = useSelector(getUsersData)
   const usersListError = useSelector(getUsersError)
   const usersListStatus = useSelector(getUsersStatus)
   const [spinner, setSpinner] = useState(true)
-  const [currentPage, setCurrentPage] = useState(1)
   const [filteredUsersList, setFilteredUsersList] = useState([])
-
   
   
+  const itemsPerPage = 6;
+  const [currentPage, setCurrentPage] = useState(1)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage;
+  const displayedUsers = filteredUsersList.slice(startIndex, endIndex)
+  const totalPages = Math.ceil(filteredUsersList.length / itemsPerPage);
 
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
   useEffect(()=>{
-    console.log(SearchName)
     let newFilteredUsersList=[]
     if (usersListStatus === "idle") {
       dispatch(getUsersListFromAPIThunk());
@@ -55,44 +63,69 @@ export const TableUser = ({FilterOption, selectedSortOption, SearchName}) => {
   },[dispatch, usersListData, usersListStatus, FilterOption,selectedSortOption, SearchName])
 
   return (
-    <TableStyled>
-      <thead>
-        <tr>
-          <TrHeadStyled>Employee</TrHeadStyled>
-          <TrHeadStyled>Job Description</TrHeadStyled>
-          <TrHeadStyled>Contact</TrHeadStyled>
-          <TrHeadStyled>Status</TrHeadStyled>
-        </tr>
-      </thead>
-      <tbody>
-        {filteredUsersList.map((user) => (
-          <TrStyled key={user.id}>
-            <TdUserCardStyled>
-              <img src={user.photo} alt="" />
-              <div>
-                  <TdHeadind>{user.name}</TdHeadind>
-                  <TdIdText># {user.id}</TdIdText>
-                  <TdSubText>{user.start_date}</TdSubText>
-              </div>
-            </TdUserCardStyled>
-            <td>
-              <TdText>{user.description}</TdText>
-            </td>
-            <td>
-              <TdFlex>
-                <PhoneStyledIcon/>
-                <TdText>{user.phone}</TdText>
-              </TdFlex>
-            </td>
+    <>
+      <TableStyled>
+        <thead>
+          <tr>
+            <TrHeadStyled>Employee</TrHeadStyled>
+            <TrHeadStyled>Job Description</TrHeadStyled>
+            <TrHeadStyled>Contact</TrHeadStyled>
+            <TrHeadStyled>Status</TrHeadStyled>
+            <TrHeadStyled>Action</TrHeadStyled>
+          </tr>
+        </thead>
+        <tbody>
+          {displayedUsers.map((user) => (
+            <TrStyled key={user.id}>
+              <TdUserCardStyled>
+                <img src={user.photo} alt="" />
+                <div>
+                    <TdHeadind>{user.name}</TdHeadind>
+                    <TdIdText># {user.id}</TdIdText>
+                    <TdSubText>{user.start_date}</TdSubText>
+                </div>
+              </TdUserCardStyled>
+              <td>
+                <TdText>{user.description}</TdText>
+              </td>
+              <td>
+                <TdFlex>
+                  <PhoneStyledIcon/>
+                  <TdText>{user.phone}</TdText>
+                </TdFlex>
+              </td>
 
-            <TdBtnStyled>
-                {!user.is_active && <TableUserBtn $bg="transparent" $color="#E23428">INACTIVE</TableUserBtn>}
-                {user.is_active  && <TableUserBtn $bg="transparent" $color="#5AD07A">ACTIVE</TableUserBtn>}
-            </TdBtnStyled>
-          </TrStyled>
-        ))}
-      </tbody>
-    </TableStyled>
+              <TdBtnStyled>
+                  {!user.is_active && <TableUserBtn $bg="transparent" $color="#E23428">INACTIVE</TableUserBtn>}
+                  {user.is_active  && <TableUserBtn $bg="transparent" $color="#5AD07A">ACTIVE</TableUserBtn>}
+              </TdBtnStyled>
+              <td>
+              <DotsStyledIcon />
+              </td>
+            </TrStyled>
+          ))}
+        </tbody>
+      </TableStyled>
+
+      <div>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages || totalPages === 0}
+        >
+          Next
+        </button>
+      </div>
+    
+    </>
     
   )
 

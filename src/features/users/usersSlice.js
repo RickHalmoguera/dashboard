@@ -11,9 +11,9 @@ export const UsersSlice = createSlice({
     },   
     reducers:{
        // getElementById: (state,action) => state.data.filter((room) => room.id === action.payload),
-       // addRoomElement: (state,action) => {
-       //     state.data = [action.payload,...state.data]
-       // }
+        addUser: (state,action) => {
+           state.data = [action.payload,...state.data]
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(getUsersListFromAPIThunk.fulfilled, (state,action) => {
@@ -31,6 +31,7 @@ export const UsersSlice = createSlice({
     }
 });
 
+export const  {addUser} = UsersSlice.actions
 export const getUsersData = state => state.users.data
 export const getUsersStatus = state => state.users.status
 export const getUsersError = state => state.users.error
