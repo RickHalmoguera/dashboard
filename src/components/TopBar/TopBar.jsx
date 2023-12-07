@@ -2,6 +2,7 @@ import { TopBarStyled } from "./TopBarStyled";
 import { ArrowLeftStyledIcon, ArrowRightStyledIcon, MailStyledIcon, BellStyledIcon, LogoutStyledIcon } from "../Icons/IconsStyled";
 import { TopBarIconsContainerStyled } from "./TopBarIconsContainerStyled";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const routePageMapping = {
   '/': 'Login',
@@ -15,12 +16,13 @@ const routePageMapping = {
 };
 
 export const TopBar = ({ onToggleMenu, isMenuOpen }) => {
+  const { logout } = useAuth();
     const navigate = useNavigate()
     const location = useLocation();
     const { pathname } = location;
     const currentPage = routePageMapping[pathname] || 'Unknown Page';
     const handleLogOut = ()=>{
-
+      logout()
         navigate("/")
     }
     
