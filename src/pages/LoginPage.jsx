@@ -57,6 +57,7 @@ export const LoginPage = () => {
       <FormStyled>
         <LabelStyled>User</LabelStyled>
         <InputStyled
+          data-cy="inputUser"
           value={user}
           type="text"
           placeholder="Ricardo"
@@ -66,6 +67,7 @@ export const LoginPage = () => {
         <LabelStyled>Password</LabelStyled>
 
         <InputStyled
+         data-cy="inputPass"
           value={password}
           type="password"
           name="password"
